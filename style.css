@@ -1,3 +1,7 @@
+/* ============================================
+   RESPONSIVE DELIVER X - ENHANCED CSS
+   ============================================ */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,12 +16,32 @@ body {
   overflow-x: hidden;
 }
 
+/* ============================================
+   CONTAINER - Responsive padding
+   ============================================ */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
+/* Tablet: Adjust container padding */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Mobile: Reduce container padding */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ============================================
+   NAVBAR - Sticky header with responsive menu
+   ============================================ */
 .navbar {
   background: #ffffff;
   padding: 20px 0;
@@ -42,6 +66,11 @@ body {
   color: #1a1a1a;
 }
 
+.navbar .logo img {
+  max-width: 40px;
+  height: auto;
+}
+
 .nav-links {
   display: flex;
   list-style: none;
@@ -55,6 +84,7 @@ body {
   font-size: 15px;
   font-weight: 500;
   transition: color 0.3s;
+  white-space: nowrap;
 }
 
 .nav-links a:hover, .nav-links a.active {
@@ -83,6 +113,41 @@ body {
   box-shadow: 0 4px 12px rgba(255, 92, 57, 0.3);
 }
 
+/* Tablet: Reduce nav links gap */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    font-size: 14px;
+  }
+  
+  .register-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile: Hide navigation links, keep logo and register button */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .navbar .logo {
+    font-size: 18px;
+  }
+  
+  .register-btn {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+}
+
+/* ============================================
+   HERO SECTION - Two-column layout becomes stacked
+   ============================================ */
 .hero-section {
   padding: 80px 0;
   background: #f9fafb;
@@ -146,7 +211,7 @@ body {
   position: absolute;
   width: 300px;
   height: 600px;
-  background: url("./assets//template-man.png") center/cover;
+  background: url("./assets/template-man.png") center/cover;
   right: 50px;
   top: 50%;
   transform: translateY(-50%);
@@ -179,35 +244,6 @@ body {
   margin-bottom: 12px;
 }
 
-.card-content h4 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.card-content .rating {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.card-content .rating .stars {
-  color: #ffb800;
-  font-size: 14px;
-}
-
-.card-content .rating .heart {
-  font-size: 18px;
-  color: #6b7280;
-}
-
-.card-content .card-desc {
-  font-size: 12px;
-  color: #6b7280;
-  line-height: 1.4;
-}
-
 .delivery-card {
   display: flex;
   gap: 12px;
@@ -234,6 +270,141 @@ body {
   color: #6b7280;
 }
 
+/* Tablet: Adjust hero section spacing and image sizes */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 60px 0;
+  }
+  
+  .hero-section .hero-content {
+    gap: 40px;
+  }
+  
+  .hero-section .hero-title {
+    font-size: 40px;
+  }
+  
+  .hero-section .hero-image {
+    height: 450px;
+  }
+  
+  .hero-section .hero-image .circle-bg {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .hero-section .hero-image .delivery-man {
+    width: 250px;
+    height: 500px;
+  }
+  
+  .burger-card {
+    width: 200px;
+    height: 210px;
+    top: 60px;
+  }
+}
+
+/* Mobile: Stack hero content vertically, simplify image layout */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 40px 0;
+  }
+  
+  .hero-section .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .hero-section .hero-title {
+    font-size: 32px;
+  }
+  
+  .hero-section .hero-description {
+    font-size: 15px;
+    max-width: 100%;
+  }
+  
+  .hero-section .label {
+    font-size: 16px;
+  }
+  
+  .hero-section .hero-image {
+    height: 400px;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  .hero-section .hero-image .circle-bg {
+    width: 320px;
+    height: 320px;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+  
+  .hero-section .hero-image .delivery-man {
+    width: 200px;
+    height: 400px;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+  
+  .burger-card {
+    width: 160px;
+    height: 170px;
+    left: 10px;
+    top: 40px;
+  }
+  
+  .delivery-card {
+    right: 10px;
+    bottom: 40px;
+    padding: 12px 16px;
+  }
+  
+  .delivery-card .delivery-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Small mobile: Further reduce hero elements */
+@media (max-width: 480px) {
+  .hero-section .hero-title {
+    font-size: 28px;
+  }
+  
+  .hero-section .hero-image {
+    height: 350px;
+  }
+  
+  .hero-section .hero-image .circle-bg {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .hero-section .hero-image .delivery-man {
+    width: 180px;
+    height: 350px;
+  }
+  
+  .burger-card {
+    width: 140px;
+    height: 150px;
+    left: 5px;
+    top: 30px;
+  }
+  
+  .delivery-card {
+    right: 5px;
+    bottom: 30px;
+    padding: 10px 12px;
+  }
+}
+
+/* ============================================
+   STATS SECTION - 4 columns to 2 columns to 1
+   ============================================ */
 .stats-section {
   padding: 80px 0;
   background: #ffffff;
@@ -265,6 +436,53 @@ body {
   color: #6b7280;
 }
 
+/* Tablet: 2 columns for stats */
+@media (max-width: 1024px) {
+  .stats-section {
+    padding: 60px 0;
+  }
+  
+  .stats-section .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .stats-section .stat-number {
+    font-size: 48px;
+  }
+}
+
+/* Mobile: Stack stats vertically or keep 2 columns */
+@media (max-width: 768px) {
+  .stats-section {
+    padding: 50px 0;
+  }
+  
+  .stats-section .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .stats-section .stat-number {
+    font-size: 40px;
+  }
+  
+  .stats-section .stat-label {
+    font-size: 14px;
+  }
+}
+
+/* Small mobile: Single column for stats */
+@media (max-width: 480px) {
+  .stats-section .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ============================================
+   ABOUT COMPANY - Two-column layout stacks on mobile
+   ============================================ */
 .about-company {
   padding: 100px 0;
   background: #f9fafb;
@@ -299,6 +517,62 @@ body {
   color: #6b7280;
 }
 
+/* Tablet: Reduce spacing and font sizes */
+@media (max-width: 1024px) {
+  .about-company {
+    padding: 80px 0;
+  }
+  
+  .about-company .about-grid {
+    gap: 60px;
+  }
+  
+  .about-company .about-image img {
+    height: 500px;
+  }
+  
+  .about-company .about-text h2 {
+    font-size: 36px;
+  }
+}
+
+/* Mobile: Stack content vertically, adjust image height */
+@media (max-width: 768px) {
+  .about-company {
+    padding: 60px 0;
+  }
+  
+  .about-company .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-company .about-image img {
+    height: 400px;
+  }
+  
+  .about-company .about-text h2 {
+    font-size: 32px;
+  }
+  
+  .about-company .description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-company .about-image img {
+    height: 300px;
+  }
+  
+  .about-company .about-text h2 {
+    font-size: 28px;
+  }
+}
+
+/* ============================================
+   MISSION SECTION - Two-column layout stacks
+   ============================================ */
 .mission-section {
   padding: 100px 0;
   background: #ffffff;
@@ -327,6 +601,67 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
+/* Tablet: Reduce spacing */
+@media (max-width: 1024px) {
+  .mission-section {
+    padding: 80px 0;
+  }
+  
+  .mission-section .mission-grid {
+    gap: 60px;
+  }
+  
+  .mission-section .mission-text h2 {
+    font-size: 36px;
+  }
+  
+  .mission-section .mission-image img {
+    height: 450px;
+  }
+}
+
+/* Mobile: Stack content, adjust image */
+@media (max-width: 768px) {
+  .mission-section {
+    padding: 60px 0;
+  }
+  
+  .mission-section .mission-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  /* Reverse order: text first, then image */
+  .mission-section .mission-text {
+    order: 1;
+  }
+  
+  .mission-section .mission-image {
+    order: 2;
+  }
+  
+  .mission-section .mission-text h2 {
+    font-size: 32px;
+  }
+  
+  .mission-section .mission-image img {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-section .mission-text h2 {
+    font-size: 28px;
+  }
+  
+  .mission-section .mission-image img {
+    height: 280px;
+  }
+}
+
+/* ============================================
+   JOURNEY SECTION - Sidebar + Timeline layout
+   ============================================ */
 .journey-section {
   padding: 100px 0;
   background: #f9fafb;
@@ -376,8 +711,9 @@ body {
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
-  height: 407px;
-  width: 525px;
+  min-height: 407px;
+  max-width: 525px;
+  width: 100%;
 }
 
 .timeline .timeline-item:hover {
@@ -405,6 +741,82 @@ body {
   color: #6b7280;
 }
 
+/* Tablet: Adjust timeline spacing */
+@media (max-width: 1024px) {
+  .journey-section {
+    padding: 80px 0;
+  }
+  
+  .journey-section .journey-content {
+    gap: 60px;
+  }
+  
+  .journey-section .journey-intro h2 {
+    font-size: 36px;
+  }
+  
+  .timeline .timeline-item {
+    padding: 40px 36px;
+    min-height: auto;
+    max-width: 100%;
+  }
+  
+  .timeline .timeline-item h3 {
+    font-size: 22px;
+  }
+  
+  .timeline .timeline-item .timeline-desc {
+    font-size: 16px;
+  }
+}
+
+/* Mobile: Stack journey intro and timeline */
+@media (max-width: 768px) {
+  .journey-section {
+    padding: 60px 0;
+  }
+  
+  .journey-section .journey-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .journey-section .journey-intro h2 {
+    font-size: 32px;
+  }
+  
+  .timeline .timeline-item {
+    padding: 32px 24px;
+  }
+  
+  .timeline .timeline-item h3 {
+    font-size: 20px;
+  }
+  
+  .timeline .timeline-item .timeline-desc {
+    font-size: 15px;
+  }
+  
+  .download-btn {
+    padding: 14px 28px;
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .journey-section .journey-intro h2 {
+    font-size: 28px;
+  }
+  
+  .timeline .timeline-item {
+    padding: 24px 20px;
+  }
+}
+
+/* ============================================
+   PARTNERS SECTION - 3 columns to 1 column
+   ============================================ */
 .partners-section {
   padding: 100px 0;
   background: #ffffff;
@@ -449,6 +861,11 @@ body {
   justify-content: center;
 }
 
+.partners-section .partner-card .partner-icon img {
+  max-width: 100%;
+  height: auto;
+}
+
 .partners-section .partner-card h3 {
   font-size: 24px;
   font-weight: 700;
@@ -462,6 +879,59 @@ body {
   color: #6b7280;
 }
 
+/* Tablet: 2 columns for partners */
+@media (max-width: 1024px) {
+  .partners-section {
+    padding: 80px 0;
+  }
+  
+  .partners-section .partners-header {
+    margin-bottom: 60px;
+  }
+  
+  .partners-section .partners-header h2 {
+    font-size: 36px;
+  }
+  
+  .partners-section .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* Mobile: Single column for partners */
+@media (max-width: 768px) {
+  .partners-section {
+    padding: 60px 0;
+  }
+  
+  .partners-section .partners-header {
+    margin-bottom: 40px;
+  }
+  
+  .partners-section .partners-header h2 {
+    font-size: 32px;
+  }
+  
+  .partners-section .partners-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .partners-section .partner-card {
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-section .partners-header h2 {
+    font-size: 28px;
+  }
+}
+
+/* ============================================
+   PRESS SECTION - 2 columns to 1 column
+   ============================================ */
 .press-section {
   padding: 100px 0;
   background: #f9fafb;
@@ -497,8 +967,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  height: 427px;
-  width: 600px;
+  min-height: 427px;
+  max-width: 600px;
+  width: 100%;
   border-radius: 24px;
 }
 
@@ -511,6 +982,11 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.press-section .press-card .press-logo img {
+  max-width: 120px;
+  height: auto;
 }
 
 .press-section .press-card .press-logo span {
@@ -532,6 +1008,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .press-section .press-card .read-more {
@@ -554,6 +1032,88 @@ body {
   font-size: 24px;
 }
 
+/* Tablet: Adjust press card spacing */
+@media (max-width: 1024px) {
+  .press-section {
+    padding: 80px 0;
+  }
+  
+  .press-section .press-header h2 {
+    font-size: 38px;
+  }
+  
+  .press-section .press-card {
+    padding: 60px 40px;
+    min-height: auto;
+    max-width: 100%;
+  }
+  
+  .press-section .press-card h3 {
+    font-size: 24px;
+  }
+  
+  .press-section .press-card .read-more {
+    font-size: 20px;
+  }
+  
+  .press-section .press-card .press-date {
+    font-size: 18px;
+  }
+}
+
+/* Mobile: Stack press cards vertically */
+@media (max-width: 768px) {
+  .press-section {
+    padding: 60px 0;
+  }
+  
+  .press-section .press-header {
+    margin-bottom: 40px;
+  }
+  
+  .press-section .press-header h2 {
+    font-size: 32px;
+  }
+  
+  .press-section .press-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .press-section .press-card {
+    padding: 40px 28px;
+  }
+  
+  .press-section .press-card h3 {
+    font-size: 22px;
+  }
+  
+  .press-section .press-card .read-more {
+    font-size: 18px;
+  }
+  
+  .press-section .press-card .press-date {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .press-section .press-header h2 {
+    font-size: 28px;
+  }
+  
+  .press-section .press-card {
+    padding: 32px 20px;
+  }
+  
+  .press-section .press-card h3 {
+    font-size: 20px;
+  }
+}
+
+/* ============================================
+   FOOTER - Complex grid layout responsive
+   ============================================ */
 .footer {
   background: #ffffff;
   padding: 80px 0 32px;
@@ -571,6 +1131,16 @@ body {
 
 .footer .footer-brand .logo {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.footer .footer-brand .logo svg {
+  flex-shrink: 0;
 }
 
 .footer .footer-brand .footer-desc {
@@ -604,6 +1174,10 @@ body {
 .footer .app-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 92, 57, 0.3);
+}
+
+.footer .app-btn svg {
+  flex-shrink: 0;
 }
 
 .footer .app-btn .app-label {
@@ -670,6 +1244,7 @@ body {
   justify-content: center;
   background: #ffffff;
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .footer .city-item span {
@@ -687,6 +1262,88 @@ body {
   font-size: 14px;
 }
 
+/* Tablet: Adjust footer grid - 3 columns for links */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 60px 0 24px;
+  }
+  
+  .footer .footer-top {
+    gap: 60px;
+    padding-bottom: 40px;
+  }
+  
+  .footer .footer-links {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  
+  /* Make the last column (cities) span full width on its row */
+  .footer .footer-column:last-child {
+    grid-column: span 3;
+  }
+}
+
+/* Mobile: Stack footer completely */
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 0 20px;
+  }
+  
+  .footer .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 32px;
+  }
+  
+  .footer .footer-brand .footer-desc {
+    max-width: 100%;
+  }
+  
+  .footer .app-buttons {
+    flex-direction: column;
+  }
+  
+  .footer .app-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+  }
+  
+  .footer .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .footer .footer-column:last-child {
+    grid-column: span 2;
+  }
+  
+  .footer .cities-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Small mobile: Single column footer */
+@media (max-width: 480px) {
+  .footer .footer-links {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .footer .footer-column:last-child {
+    grid-column: span 1;
+  }
+  
+  .footer .footer-column {
+    text-align: left;
+  }
+}
+
+/* ============================================
+   ANIMATIONS - Keep smooth on all devices
+   ============================================ */
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -719,41 +1376,64 @@ body {
   }
 }
 
+/* Reduce animations on mobile for performance */
 @media (max-width: 768px) {
-  .hero-content,
-  .about-grid,
-  .mission-grid,
-  .journey-content {
-    grid-template-columns: 1fr;
+  .hero-section .hero-text,
+  .hero-section .hero-image {
+    animation: none;
   }
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+  
+  .floating-card {
+    animation: none;
   }
-  .partners-grid,
-  .press-grid {
-    grid-template-columns: 1fr;
+}
+
+/* ============================================
+   UTILITY CLASSES - Responsive helpers
+   ============================================ */
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive typography */
+.label {
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+/* Ensure touch targets are large enough on mobile */
+@media (max-width: 768px) {
+  button,
+  a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
-  .hero-title {
-    font-size: 36px;
-  }
-  .nav-links {
+}
+
+/* ============================================
+   ACCESSIBILITY - Focus states
+   ============================================ */
+*:focus-visible {
+  outline: 2px solid #ff5c39;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   PRINT STYLES - Optional
+   ============================================ */
+@media print {
+  .navbar,
+  .register-btn,
+  .download-btn,
+  .footer .app-buttons {
     display: none;
   }
-  .hero-image {
-    height: 400px;
-  }
-  .circle-bg {
-    width: 350px;
-    height: 350px;
-  }
-  .footer-top {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .footer-links {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .cities-grid {
-    grid-template-columns: 1fr;
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
   }
 }
